@@ -15,5 +15,7 @@ namespace Core.Entities
 
         public MaestrosvsSubModulos MaestrosvsSub { get; set; }
         public int IdSubModulos { get; set; }
+
+
     }
 }

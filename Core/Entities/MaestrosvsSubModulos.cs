@@ -12,5 +12,6 @@ namespace Core.Entities
 
         public SubModulos subModulos { get; set; }
         public int IdSubModulo { get; set; }
+        public ICollection<GenericosvsSubModulos> GenericosvsSubModulos {get; set;}
     }
 }

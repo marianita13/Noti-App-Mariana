@@ -9,6 +9,8 @@ namespace Core.Entities
     {
         public string AsuntoNotificacion { get; set; }
         public string TextoNotificacion { get; set; }
+
+        //FORANEAS
         public TipoNotificaciones TipoNotificacion { get; set; }
         public int IdNotificacionFk { get; set; }
 

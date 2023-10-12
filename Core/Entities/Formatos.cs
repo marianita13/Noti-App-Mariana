@@ -10,5 +10,6 @@ namespace Core.Entities
     {
         [Required]
         public string NombreFormato { get; set; }
+        public ICollection<ModuloNoficaciones> ModuloNoficaciones {get; set;}
     }
 }

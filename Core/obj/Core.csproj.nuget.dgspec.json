@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj": {}
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj": {
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\abcd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\obj\\",
+        "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\APM02-43\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\abcd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\APM02-43\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

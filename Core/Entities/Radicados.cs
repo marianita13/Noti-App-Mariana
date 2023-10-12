@@ -7,6 +7,6 @@ namespace Core.Entities
 {
     public class Radicados : BaseEntity
     {
-        
+        public ICollection<ModuloNoficaciones> ModuloNoficaciones {get; set;}
     }
 }

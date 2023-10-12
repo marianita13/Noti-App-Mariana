@@ -17,7 +17,21 @@ namespace Infraestructura.Data.Configuration
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id);
 
+            builder.Property(e => e.HashGenerado)
+            .IsRequired()
+            .HasMaxLength(100);
 
+            builder.HasOne(p => p.Auditorias)
+            .WithMany(p => p.BlockChains)
+            .HasForeignKey(e => e.IdAuditoriaFk);
+
+            builder.HasOne(p => p.HiloRespuestaNots)
+            .WithMany(p => p.BlockChains)
+            .HasForeignKey(p => p.IdHiloRespuestaFk);
+
+            builder.HasOne(p => p.TipoNots)
+            .WithMany(p => p.BlockChains)
+            .HasForeignKey(P => P.IdNotificacionFk);
         }
     }
 }

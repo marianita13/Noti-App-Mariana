@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infraestructura.Data.Configuration
 {
-    public class AuditoriaRepository : IEntityTypeConfiguration<Auditoria>
+    public class AuditoriaConfiguration : IEntityTypeConfiguration<Auditoria>
     {
         public void Configure(EntityTypeBuilder<Auditoria> builder)
         {
