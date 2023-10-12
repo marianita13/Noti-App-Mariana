@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\abcd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\USER\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\noti-app-Mariana\\Core\\obj\\",
+      "projectPath": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\abcd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abcd\\Documents\\noti-app-Mariana\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\abcd\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"

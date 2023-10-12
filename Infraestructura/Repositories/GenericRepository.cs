@@ -26,5 +26,20 @@ namespace Infraestructura.Repositories
             _context.Set<T>().Add(entity);
         }
         
+        public virtual void AddRange(IEnumerable<T> entities){
+            _context.Set<T>().AddRange(entities);
+        }
+
+        public virtual void Remove(T entity){
+            _context.Set<T>().Remove(entity);
+        }
+
+        public virtual void RemoveRange(IEnumerable<T> entities){
+            _context.Set<T>().RemoveRange(entities);
+        }
+
+        public void Update(T entity){
+            _context.Set<T>().Update(entity);
+        }
     }
 }
