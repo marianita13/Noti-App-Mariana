@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Rol
+    public class Rol : BaseEntity
     {
-        
+        public string Nombre { get; set; }
     }
 }

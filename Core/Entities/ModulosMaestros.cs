@@ -7,6 +7,6 @@ namespace Core.Entities
 {
     public class ModulosMaestros : BaseEntity
     {
-        public int MyProperty { get; set; }
+        public string NombreModulo { get; set; }
     }
 }

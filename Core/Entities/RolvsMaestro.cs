@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class RolvsMaestro
+    public class RolvsMaestro : BaseEntity
     {
-        
+        public Rol Roles { get; set; }
+        public int IdRolFk { get; set; }
+
+        public ModulosMaestros Maestros { get; set; }
+        public int IdMaestros { get; set; }
     }
 }

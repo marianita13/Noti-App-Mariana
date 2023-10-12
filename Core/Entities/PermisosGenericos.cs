@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class PermisosGenericos
+    public class PermisosGenericos : BaseEntity
     {
-        
+        public string NombrePermiso { get; set; }
     }
 }
