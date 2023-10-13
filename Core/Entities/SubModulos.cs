@@ -7,6 +7,7 @@ namespace Core.Entities
 {
     public class SubModulos : BaseEntity
     {
+        public string NombreSubmodulo { get; set; }
         public ICollection<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
     }
 }
