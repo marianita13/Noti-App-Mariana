@@ -36,5 +36,9 @@ namespace Infraestructura.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        public async Task<int> SaveAsync(){
+            return await base.SaveChangesAsync();
+        }
     }
 }
