@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Core.Entities;
 using Infraestructura.Data;
@@ -19,9 +21,13 @@ namespace Infraestructura.Repositories
         public virtual async Task<IEnumerable<T>> GetAllAsync(){
             return await _context.Set<T>().ToListAsync();
         }
-        public virtual async Task<T> GetIDAsync(){
+        public virtual async Task<T> GetIdAsync(int id){
             return await _context.Set<T>().FindAsync();
         }
+
+         public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression){
+        return _context.Set<T>().Where(expression);
+    }
         public virtual void Add(T entity){
             _context.Set<T>().Add(entity);
         }
