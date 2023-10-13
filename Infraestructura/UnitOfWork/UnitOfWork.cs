@@ -17,22 +17,22 @@ namespace Infraestructura.UnitOfWork
             _context = context;
         }
 
-        public IAuditoria _Auditorias;
-        public IBlockChain _BlockChains;
-        public IEstadoNotificacion _EstadosNots;
-        public IFormato _Formatos;
-        public IGenericosvsSubModulos _GenericosVSSubModulos;
-        public IHiloRespuestaNot _HilosRespuestas;
-        public IMaestrosvsSubModulos _MaestrosVSSubModulos;
-        public IModuloNotificaciones _ModuloNotificaciones;
-        public IModulosMaestros _modulosMaestros;
-        public IPermisosGenericos _PermisosGenericos;
-        public IRadicados _Radicados;
-        public IRol _Roles;
-        public IRolvsMaestro _RolesVSMaestros;
-        public ISubModulo _SubModulos;
-        public ITipoNotificaciones _TiposNost;
-        public ITipoRequerimiento _TipoRequerimientos;
+        private IAuditoria _Auditorias;
+        private IBlockChain _BlockChains;
+        private IEstadoNotificacion _EstadosNots;
+        private IFormato _Formatos;
+        private IGenericosvsSubModulos _GenericosVSSubModulos;
+        private IHiloRespuestaNot _HilosRespuestas;
+        private IMaestrosvsSubModulos _MaestrosVSSubModulos;
+        private IModuloNotificaciones _ModuloNotificaciones;
+        private IModulosMaestros _modulosMaestros;
+        private IPermisosGenericos _PermisosGenericos;
+        private IRadicados _Radicados;
+        private IRol _Roles;
+        private IRolvsMaestro _RolesVSMaestros;
+        private ISubModulo _SubModulos;
+        private ITipoNotificaciones _TiposNost;
+        private ITipoRequerimiento _TipoRequerimientos;
 
         public IAuditoria Auditoria{
             get{

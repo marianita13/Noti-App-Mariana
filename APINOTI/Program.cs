@@ -1,15 +1,24 @@
 using System.Reflection;
+using APINOTI.Extensions;
+using Infraestructura.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// builder.Services.AddCors();
+builder.Services.ConfigureCors();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationServices();
+
+builder.Services.AddDbContext<NotiAppContext>(OptionsBuilder => {
+    string connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
+    OptionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 var app = builder.Build();
 

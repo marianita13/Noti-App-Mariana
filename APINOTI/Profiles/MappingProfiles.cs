@@ -10,6 +10,8 @@ namespace APINOTI.Profiles
 {
     public class MappingProfiles : Profile
     {
-        // CreateMap<Auditoria, IAuditoria>().ReverseMap();
+        // public MappingProfiles(){
+        //     CreateMap<Auditoria, IAuditoria>().ReverseMap();
+        // }
     }
 }
