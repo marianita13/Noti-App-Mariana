@@ -7,6 +7,17 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork
     {
-        
+        IAuditoria Auditorias {get;}
+        IBlockChain BlockChains {get;}
+        IEstadoNotificacion EstadoNotificaciones {get;}
+        IFormato Formatos {get;}
+        IHiloRespuestaNot HiloRespuestas {get;}
+        IModulosMaestros ModuloMaestros {get;}
+        IModuloNotificaciones ModuloNotificaciones {get;}
+        IPermisosGenericos PermisosGenericos {get;}
+        IRadicados Radicados {get;}
+        ISubModulo SubModulos {get;}
+        ITipoRequerimiento TipoRequerimientos {get;}
+        ITipoNotificaciones TipoNotificaciones {get;}
     }
 }

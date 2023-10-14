@@ -34,7 +34,7 @@ namespace Infraestructura.UnitOfWork
         private ITipoNotificaciones _TiposNost;
         private ITipoRequerimiento _TipoRequerimientos;
 
-        public IAuditoria Auditoria{
+        public IAuditoria Auditorias {
             get{
                 if (_Auditorias == null){
                     _Auditorias = new AuditoriaRepository(_context);
@@ -43,7 +43,7 @@ namespace Infraestructura.UnitOfWork
             }
         }
 
-        public IBlockChain BlockChain{
+        public IBlockChain BlockChains {
             get{
                 if (_BlockChains == null){
                     _BlockChains = new BlockChainRepository(_context);
@@ -51,7 +51,8 @@ namespace Infraestructura.UnitOfWork
                 return _BlockChains;
             }
         }
-        public IEstadoNotificacion EstadoNotificacion{
+
+        public IEstadoNotificacion EstadoNotificaciones {
             get{
                 if (_EstadosNots == null){
                     _EstadosNots = new EstadoNotRepository(_context);
@@ -59,7 +60,7 @@ namespace Infraestructura.UnitOfWork
                 return _EstadosNots;
             }
         }
-        public IFormato Formato{
+        public IFormato Formatos {
             get{
                 if(_Formatos == null){
                     _Formatos = new FormatoRepository(_context);
@@ -75,7 +76,7 @@ namespace Infraestructura.UnitOfWork
                 return _GenericosVSSubModulos;
             }
         }
-        public IHiloRespuestaNot HiloRespuestaNot{
+        public IHiloRespuestaNot HiloRespuestas {
             get{
                 if (_HilosRespuestas == null){
                     _HilosRespuestas = new HiloRespuestaRepository(_context);
@@ -91,15 +92,7 @@ namespace Infraestructura.UnitOfWork
                 return _MaestrosVSSubModulos;
             }
         }
-        public IModuloNotificaciones ModuloNotificaciones{
-            get{
-                if (_ModuloNotificaciones == null){
-                    _ModuloNotificaciones = new ModuloNotiRepository(_context);
-                }
-                return _ModuloNotificaciones;
-            }
-        }
-        public IModulosMaestros ModulosMaestros{
+        public IModulosMaestros ModuloMaestros {
             get{
                 if (_modulosMaestros == null){
                     _modulosMaestros = new ModuloMaestrosRepository(_context);
@@ -108,7 +101,16 @@ namespace Infraestructura.UnitOfWork
             }
         }
 
-        public IPermisosGenericos PermisosGenericos{
+        public IModuloNotificaciones ModuloNotificaciones {
+            get{
+                if (_ModuloNotificaciones == null){
+                    _ModuloNotificaciones = new ModuloNotiRepository(_context);
+                }
+                return _ModuloNotificaciones;
+            }
+        }
+
+        public IPermisosGenericos PermisosGenericos {
             get{
                 if (_PermisosGenericos == null){
                     _PermisosGenericos = new PermisosGenericosRepository(_context);
@@ -116,7 +118,8 @@ namespace Infraestructura.UnitOfWork
                 return _PermisosGenericos;
             }
         }
-        public IRadicados Radicados{
+
+        public IRadicados Radicados {
             get{
                 if (_Radicados == null){
                     _Radicados = new RadicadosRepository(_context);
@@ -140,8 +143,7 @@ namespace Infraestructura.UnitOfWork
                 return _RolesVSMaestros;
             }
         }
-
-        public ISubModulo SubModulo{
+        public ISubModulo SubModulos {
             get{
                 if(_SubModulos == null){
                     _SubModulos = new SubModulosRepository(_context);
@@ -149,20 +151,22 @@ namespace Infraestructura.UnitOfWork
                 return _SubModulos;
             }
         }
-        public ITipoNotificaciones TipoNotificaciones{
-            get{
-                if(_TiposNost == null){
-                    _TiposNost = new TipoNotificacionesRepository(_context);
-                }
-                return _TiposNost;
-            }
-        }
-        public ITipoRequerimiento TipoRequerimiento{
+
+        public ITipoRequerimiento TipoRequerimientos {
             get{
                 if(_TipoRequerimientos == null){
                     _TipoRequerimientos = new TipoRequerimientoRepository(_context);
                 }
                 return _TipoRequerimientos;
+            }
+        }
+
+        public ITipoNotificaciones TipoNotificaciones {
+            get{
+                if(_TiposNost == null){
+                    _TiposNost = new TipoNotificacionesRepository(_context);
+                }
+                return _TiposNost;
             }
         }
 

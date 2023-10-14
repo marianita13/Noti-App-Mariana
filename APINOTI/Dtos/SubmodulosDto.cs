@@ -6,11 +6,12 @@ using Core.Entities;
 
 namespace APINOTI.Dtos
 {
-    public class PermisosGenericosDto
+    public class SubmodulosDto
     {
         public int Id { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
-        public string NombrePermiso { get; set; }
+        public string NombreSubmodulo { get; set; }
+        public ICollection<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
     }
 }
