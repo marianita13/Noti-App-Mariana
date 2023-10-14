@@ -1,6 +1,7 @@
 using APINOTI.Dtos;
 using AutoMapper;
 using Core.Entities;
+using Core.Interfaces;
 using Infraestructura.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,7 @@ namespace APINOTI.Controllers
 {
     public class PermisosGenericosController : ControllerBase
     {
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
         public PermisosGenericosController (UnitOfWork unitOfWork, IMapper mapper)

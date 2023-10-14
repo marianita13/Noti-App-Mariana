@@ -1,20 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using APINOTI.Dtos;
 using AutoMapper;
 using Core.Entities;
+using Core.Interfaces;
 using Infraestructura.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace APINOTI.Controllers
 {
     public class HiloRespuestaController : ControllerBase
     {
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
         public HiloRespuestaController (UnitOfWork unitOfWork, IMapper mapper)

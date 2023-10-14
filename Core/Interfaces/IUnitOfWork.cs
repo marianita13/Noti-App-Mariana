@@ -16,8 +16,10 @@ namespace Core.Interfaces
         IModuloNotificaciones ModuloNotificaciones {get;}
         IPermisosGenericos PermisosGenericos {get;}
         IRadicados Radicados {get;}
+        IRol Roles {get;}
         ISubModulo SubModulos {get;}
         ITipoRequerimiento TipoRequerimientos {get;}
         ITipoNotificaciones TipoNotificaciones {get;}
+        Task<int> SaveAsync();
     }
 }

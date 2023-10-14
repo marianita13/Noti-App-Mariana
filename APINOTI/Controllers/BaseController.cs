@@ -9,8 +9,8 @@ using Microsoft.Extensions.Logging;
 namespace APINOTI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-    public class BaseController : ControllerBase
-    {
+[Route("[Controller]")]
+public class BaseController : ControllerBase
+{
 
-    }
+}
