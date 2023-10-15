@@ -22,12 +22,12 @@ namespace Infraestructura.Repositories
             return await _context.Set<T>().ToListAsync();
         }
         public virtual async Task<T> GetIdAsync(int id){
-            return await _context.Set<T>().FindAsync();
+            return await _context.Set<T>().FindAsync(id);
         }
 
-         public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression){
-        return _context.Set<T>().Where(expression);
-    }
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression){
+            return _context.Set<T>().Where(expression);
+        }
         public virtual void Add(T entity){
             _context.Set<T>().Add(entity);
         }

@@ -79,7 +79,7 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]   
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<AuditoriaDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var auditoria = await _UnitOfWork.Auditorias.GetIdAsync(id);
             if (auditoria == null){
                 return NotFound();

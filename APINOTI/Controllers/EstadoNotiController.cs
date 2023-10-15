@@ -12,7 +12,7 @@ namespace APINOTI.Controllers
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
-        public EstadoNotiController(UnitOfWork unitOfWork, IMapper mapper)
+        public EstadoNotiController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _UnitOfWork = unitOfWork;
             _mapper = mapper;
@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return EstadoNotiDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<EstadoNotiDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var EstadoNoti = await _UnitOfWork.EstadoNotificaciones.GetIdAsync(id);
             if (EstadoNoti == null){
                 return NotFound();

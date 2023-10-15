@@ -11,5 +11,8 @@ namespace APINOTI.Dtos
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string HashGenerado { get; set; }
+        public int IdAuditoriaFk { get; set; } 
+        public int IdHiloRespuestaFk { get; set; }
+        public int IdNotificacionFk { get; set; }
     }
 }

@@ -21,6 +21,11 @@ namespace Infraestructura.Data.Configuration
             .IsRequired()
             .HasMaxLength(100);
 
+            builder.Property(w => w.FechaCreacion)
+            .HasColumnType("DateTime");
+            builder.Property(w => w.FechaModificacion)
+            .HasColumnType("DateTime");
+
             builder.HasOne(p => p.Auditorias)
             .WithMany(p => p.BlockChains)
             .HasForeignKey(e => e.IdAuditoriaFk);

@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return blockChainDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<BlockChainDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var blockChain = await _UnitOfWork.BlockChains.GetIdAsync(id);
             if (blockChain == null){
                 return NotFound();

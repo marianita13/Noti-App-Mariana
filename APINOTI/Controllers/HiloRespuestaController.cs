@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return HiloRespuestaDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<HiloRespuestaDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var hiloRespuesta = await _UnitOfWork.HiloRespuestas.GetIdAsync(id);
             if (hiloRespuesta == null){
                 return NotFound();

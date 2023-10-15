@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return TipoNotiDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<TipoNotiDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var tipoNoti = await _UnitOfWork.TipoNotificaciones.GetIdAsync(id);
             if (tipoNoti == null){
                 return NotFound();

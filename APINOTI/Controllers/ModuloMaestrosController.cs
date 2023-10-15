@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return moduloMaestrosDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<ModuloMaestrosDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var moduloMaestros = await _UnitOfWork.ModuloMaestros.GetIdAsync(id);
             if (moduloMaestros == null){
                 return NotFound();

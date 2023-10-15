@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return PermisosGenericosDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<PermisosGenericosDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var permisos = await _UnitOfWork.PermisosGenericos.GetIdAsync(id);
             if (permisos == null){
                 return NotFound();

@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return FormatoDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<FormatoDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var formatos = await _UnitOfWork.Formatos.GetIdAsync(id);
             if (formatos == null){
                 return NotFound();

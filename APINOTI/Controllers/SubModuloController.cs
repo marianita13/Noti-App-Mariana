@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return SubmodulosDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<SubmodulosDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var submodulos = await _UnitOfWork.SubModulos.GetIdAsync(id);
             if (submodulos == null){
                 return NotFound();

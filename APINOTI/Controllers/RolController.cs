@@ -75,11 +75,11 @@ namespace APINOTI.Controllers
             return RolDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<ActionResult<RolDto>> Delete(int id){
+        public async Task<ActionResult> Delete(int id){
             var roles = await _UnitOfWork.Roles.GetIdAsync(id);
             if (roles == null){
                 return NotFound();
