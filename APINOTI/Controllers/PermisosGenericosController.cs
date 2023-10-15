@@ -12,7 +12,7 @@ namespace APINOTI.Controllers
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
-        public PermisosGenericosController (UnitOfWork unitOfWork, IMapper mapper)
+        public PermisosGenericosController (IUnitOfWork unitOfWork, IMapper mapper)
         {
             _UnitOfWork = unitOfWork;
             _mapper = mapper;

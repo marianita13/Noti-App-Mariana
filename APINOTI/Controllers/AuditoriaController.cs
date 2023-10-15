@@ -11,7 +11,7 @@ namespace APINOTI.Controllers
     {
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
-        public AuditoriaController(UnitOfWork unitOfWork, IMapper mapper)
+        public AuditoriaController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _UnitOfWork = unitOfWork;
             _mapper = mapper;

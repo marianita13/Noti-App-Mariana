@@ -12,7 +12,7 @@ namespace APINOTI.Controllers
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
-        public RadicadosController (UnitOfWork unitOfWork, IMapper mapper)
+        public RadicadosController (IUnitOfWork unitOfWork, IMapper mapper)
         {
             _UnitOfWork = unitOfWork;
             _mapper = mapper;
