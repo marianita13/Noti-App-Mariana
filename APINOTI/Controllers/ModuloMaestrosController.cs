@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APINOTI.Controllers
 {
-    public class ModuloMaestrosController : ControllerBase
+    public class ModuloMaestrosController : BaseController
     {
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;

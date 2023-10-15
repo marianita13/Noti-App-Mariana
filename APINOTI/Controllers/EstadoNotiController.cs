@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APINOTI.Controllers
 {
-    public class EstadoNotiController : ControllerBase
+    public class EstadoNotiController : BaseController
     {
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
 
-        public EstadoNotiController(IUnitOfWork unitOfWork, IMapper mapper)
+        public EstadoNotiController(UnitOfWork unitOfWork, IMapper mapper)
         {
             _UnitOfWork = unitOfWork;
             _mapper = mapper;

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APINOTI.Controllers
 {
-    public class ModuloNotificacionesController : ControllerBase
+    public class ModuloNotificacionesController : BaseController
     {
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;

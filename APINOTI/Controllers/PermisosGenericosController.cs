@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APINOTI.Controllers
 {
-    public class PermisosGenericosController : ControllerBase
+    public class PermisosGenericosController : BaseController
     {
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _mapper;
