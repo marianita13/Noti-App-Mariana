@@ -45,6 +45,10 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<AuditoriaDto>> Post(AuditoriaDto auditoriaDto){
             var auditoria = _mapper.Map<Auditoria>(auditoriaDto);
+
+            if (auditoria.FechaCreacion == DateTime.MinValue){
+                auditoria.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.Auditorias.Add(auditoria);
             await _UnitOfWork.SaveAsync();
             if (auditoria == null){
