@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<FormatoDto>>> Get(){
             var Formato = await _UnitOfWork.Formatos.GetAllAsync();
-            return Ok(Formato);
+            return _mapper.Map<List<FormatoDto>>(Formato);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (Formatos == null){
                 return NotFound();
             }
-            return Ok(Formatos);
+            return _mapper.Map<FormatoDto>(Formatos);
         }
 
         [HttpPost]

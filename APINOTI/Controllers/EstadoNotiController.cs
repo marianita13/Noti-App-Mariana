@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<EstadoNotiDto>>> Get(){
             var EstadoNoti = await _UnitOfWork.EstadoNotificaciones.GetAllAsync();
-            return Ok(EstadoNoti);
+            return _mapper.Map<List<EstadoNotiDto>>(EstadoNoti);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (EstadoNoti == null){
                 return NotFound();
             }
-            return Ok(EstadoNoti);
+            return _mapper.Map<EstadoNotiDto>(EstadoNoti);
         }
 
         [HttpPost]

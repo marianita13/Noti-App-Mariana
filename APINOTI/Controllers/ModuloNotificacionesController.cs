@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<ModuloNotificacionesDto>>> Get(){
             var moduloNotificaciones = await _UnitOfWork.ModuloNotificaciones.GetAllAsync();
-            return Ok(moduloNotificaciones);
+            return _mapper.Map<List<ModuloNotificacionesDto>>(moduloNotificaciones);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (moduloNotificaciones == null){
                 return NotFound();
             }
-            return Ok(moduloNotificaciones);
+            return _mapper.Map<ModuloNotificacionesDto>(moduloNotificaciones);
         }
 
         [HttpPost]

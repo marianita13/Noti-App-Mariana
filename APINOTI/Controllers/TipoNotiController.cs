@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<TipoNotiDto>>> Get(){
             var tipoNoti = await _UnitOfWork.TipoNotificaciones.GetAllAsync();
-            return Ok(tipoNoti);
+            return _mapper.Map<List<TipoNotiDto>>(tipoNoti);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (tipoNoti == null){
                 return NotFound();
             }
-            return Ok(tipoNoti);
+            return _mapper.Map<TipoNotiDto>(tipoNoti);
         }
 
         [HttpPost]

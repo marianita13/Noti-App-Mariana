@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<ModuloMaestrosDto>>> Get(){
             var moduloMaestros = await _UnitOfWork.ModuloMaestros.GetAllAsync();
-            return Ok(moduloMaestros);
+            return _mapper.Map<List<ModuloMaestrosDto>>(moduloMaestros);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (moduloMaestros == null){
                 return NotFound();
             }
-            return Ok(moduloMaestros);
+            return _mapper.Map<ModuloMaestrosDto>(moduloMaestros);
         }
 
         [HttpPost]

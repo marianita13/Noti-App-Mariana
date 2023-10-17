@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<HiloRespuestaDto>>> Get(){
             var hilorespuesta = await _UnitOfWork.HiloRespuestas.GetAllAsync();
-            return Ok(hilorespuesta);
+            return _mapper.Map<List<HiloRespuestaDto>>(hilorespuesta);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (hiloRespuesta == null){
                 return NotFound();
             }
-            return Ok(hiloRespuesta);
+            return _mapper.Map<HiloRespuestaDto>(hiloRespuesta);
         }
 
         [HttpPost]

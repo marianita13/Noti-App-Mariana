@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Public\\Documents\\noti-app-Mariana\\APINOTI\\APINOTI.csproj": {}
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\APINOTI\\APINOTI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Public\\Documents\\noti-app-Mariana\\APINOTI\\APINOTI.csproj": {
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\APINOTI\\APINOTI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\APINOTI\\APINOTI.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\APINOTI\\APINOTI.csproj",
         "projectName": "APINOTI",
-        "projectPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\APINOTI\\APINOTI.csproj",
-        "packagesPath": "C:\\Users\\Janus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\APINOTI\\obj\\",
+        "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\APINOTI\\APINOTI.csproj",
+        "packagesPath": "C:\\Users\\APM02-43\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\APINOTI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\APM02-43\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj": {
-                "projectPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj"
+              "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj": {
+                "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj"
               }
             }
           }
@@ -104,26 +106,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\Core.csproj": {
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Janus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\obj\\",
+        "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\APM02-43\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\APM02-43\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -157,34 +161,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj": {
+    "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj",
         "projectName": "Infraestructura",
-        "projectPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj",
-        "packagesPath": "C:\\Users\\Janus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Infraestructura\\obj\\",
+        "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\Infraestructura.csproj",
+        "packagesPath": "C:\\Users\\APM02-43\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Infraestructura\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\APM02-43\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Public\\Documents\\noti-app-Mariana\\Core\\Core.csproj"
+              "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\APM02-43\\Desktop\\noti-app-Mariana\\Core\\Core.csproj"
               }
             }
           }
@@ -228,7 +234,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<RadicadosDto>>> Get(){
             var Radicados = await _UnitOfWork.Radicados.GetAllAsync();
-            return Ok(Radicados);
+            return _mapper.Map<List<RadicadosDto>>(Radicados);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (radicados == null){
                 return NotFound();
             }
-            return Ok(radicados);
+            return _mapper.Map<RadicadosDto>(radicados);
         }
 
         [HttpPost]

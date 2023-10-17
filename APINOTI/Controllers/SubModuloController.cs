@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<SubmodulosDto>>> Get(){
             var submodulos = await _UnitOfWork.SubModulos.GetAllAsync();
-            return Ok(submodulos);
+            return _mapper.Map<List<SubmodulosDto>>(submodulos);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (submodulos == null){
                 return NotFound();
             }
-            return Ok(submodulos);
+            return _mapper.Map<SubmodulosDto>(submodulos);
         }
 
         [HttpPost]

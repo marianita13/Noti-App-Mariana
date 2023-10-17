@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<PermisosGenericosDto>>> Get(){
             var Permisos = await _UnitOfWork.PermisosGenericos.GetAllAsync();
-            return Ok(Permisos);
+            return _mapper.Map<List<PermisosGenericosDto>>(Permisos);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (Permisos == null){
                 return NotFound();
             }
-            return Ok(Permisos);
+            return _mapper.Map<PermisosGenericosDto>(Permisos);
         }
 
         [HttpPost]

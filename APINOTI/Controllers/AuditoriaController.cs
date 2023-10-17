@@ -21,9 +21,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public async Task<ActionResult<IEnumerable<Auditoria>>> Get(){
+        public async Task<ActionResult<IEnumerable<AuditoriaDto>>> Get(){
             var auditoria = await _UnitOfWork.Auditorias.GetAllAsync();
-            return Ok(auditoria);
+            return _mapper.Map<List<AuditoriaDto>>(auditoria);
         } 
 
         [HttpGet("{id}")]
@@ -36,7 +36,7 @@ namespace APINOTI.Controllers
             if (auditoria == null){
                 return NotFound();
             }
-            return Ok(auditoria);
+            return _mapper.Map<AuditoriaDto>(auditoria);
         }
 
         [HttpPost]
@@ -55,7 +55,9 @@ namespace APINOTI.Controllers
                 return BadRequest();
             }
             auditoriaDto.Id = auditoria.Id;
-            return CreatedAtAction(nameof(Post), new {id = auditoriaDto.Id}, auditoriaDto);
+            var retorno = CreatedAtAction(nameof(Post), new {id = auditoriaDto.Id}, auditoriaDto);
+            var retorno2 = await _UnitOfWork.Auditorias.GetIdAsync(auditoriaDto.Id);
+            return _mapper.Map<AuditoriaDto>(retorno2);
         }
 
         [HttpPut("{id}")]

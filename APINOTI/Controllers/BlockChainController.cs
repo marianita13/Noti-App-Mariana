@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<BlockChainDto>>> Get(){
             var BlockChain = await _UnitOfWork.BlockChains.GetAllAsync();
-            return Ok(BlockChain);
+            return _mapper.Map<List<BlockChainDto>>(BlockChain);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (BlockChain == null){
                 return NotFound();
             }
-            return Ok(BlockChain);
+            return _mapper.Map<BlockChainDto>(BlockChain);
         }
 
         [HttpPost]

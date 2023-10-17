@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<TipoRequrimientoDto>>> Get(){
             var tipoRequerimiento = await _UnitOfWork.TipoRequerimientos.GetAllAsync();
-            return Ok(tipoRequerimiento);
+            return _mapper.Map<List<TipoRequrimientoDto>>(tipoRequerimiento);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (tipoRequerimiento == null){
                 return NotFound();
             }
-            return Ok(tipoRequerimiento);
+            return _mapper.Map<TipoRequrimientoDto>(tipoRequerimiento);
         }
 
         [HttpPost]

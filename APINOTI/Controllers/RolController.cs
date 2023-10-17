@@ -24,7 +24,7 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<IEnumerable<RolDto>>> Get(){
             var roles = await _UnitOfWork.Roles.GetAllAsync();
-            return Ok(roles);
+            return _mapper.Map<List<RolDto>>(roles);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace APINOTI.Controllers
             if (roles == null){
                 return NotFound();
             }
-            return Ok(roles);
+            return _mapper.Map<RolDto>(roles);
         }
 
         [HttpPost]
