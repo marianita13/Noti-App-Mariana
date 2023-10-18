@@ -17,5 +17,6 @@ namespace APINOTI.Dtos
         public int IdEstadoNotificacionFk { get; set; }
         public int IdHiloRespuestaFk { get; set; }
         public int IdFormatoFk { get; set; }
+        public int IdRequerimiento { get; set; }
     }
 }
