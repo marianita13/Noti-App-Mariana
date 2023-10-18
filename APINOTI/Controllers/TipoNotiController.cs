@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (tipoNoti == null){
                 return BadRequest();
             }
+            TipoNotiDto.Id = tipoNoti.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = TipoNotiDto.Id}, TipoNotiDto);
             var retorno2 = await _UnitOfWork.TipoNotificaciones.GetIdAsync(TipoNotiDto.Id);
             return _mapper.Map<TipoNotiDto>(retorno2);

@@ -54,7 +54,8 @@ namespace APINOTI.Controllers
             if (formatos == null){
                 return BadRequest();
             }
-            var datp = CreatedAtAction(nameof(Post), new {id = FormatosDto.Id}, FormatosDto);
+            FormatosDto.Id = formatos.Id;
+            var dato = CreatedAtAction(nameof(Post), new {id = FormatosDto.Id}, FormatosDto);
             var retorno2 = await _UnitOfWork.Formatos.GetIdAsync(FormatosDto.Id);
             return _mapper.Map<FormatoDto>(retorno2);
         }

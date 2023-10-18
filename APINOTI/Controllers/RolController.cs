@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (roles == null){
                 return BadRequest();
             }
+            RolDto.Id = roles.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = RolDto.Id}, RolDto);
             var retorno2 = await _UnitOfWork.Roles.GetIdAsync(RolDto.Id);
             return _mapper.Map<RolDto>(retorno2);

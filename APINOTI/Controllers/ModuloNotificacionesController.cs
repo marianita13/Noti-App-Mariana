@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (moduloNotificaciones == null){
                 return BadRequest();
             }
+            ModuloNotificacionesDto.Id = moduloNotificaciones.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = ModuloNotificacionesDto.Id}, ModuloNotificacionesDto);
             var retorno2 = await _UnitOfWork.ModuloNotificaciones.GetIdAsync(ModuloNotificacionesDto.Id);
             return _mapper.Map<ModuloNotificacionesDto>(retorno2);

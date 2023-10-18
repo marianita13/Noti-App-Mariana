@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (EstadoNoti == null){
                 return BadRequest();
             }
+            estadoNotiDto.Id = EstadoNoti.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = estadoNotiDto.Id}, estadoNotiDto);
             var retorno = _UnitOfWork.EstadoNotificaciones.GetIdAsync(estadoNotiDto.Id);
             return _mapper.Map<EstadoNotiDto>(EstadoNoti);

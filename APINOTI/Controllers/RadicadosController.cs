@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (radicados == null){
                 return BadRequest();
             }
+            RadicadosDto.Id = radicados.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = RadicadosDto.Id}, RadicadosDto);
             var retorno2 = await _UnitOfWork.Radicados.GetIdAsync(RadicadosDto.Id);
             return _mapper.Map<RadicadosDto>(retorno2);

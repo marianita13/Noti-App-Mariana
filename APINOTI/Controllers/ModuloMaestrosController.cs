@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (moduloMaestros == null){
                 return BadRequest();
             }
+            moduloMaestrosDto.Id = moduloMaestros.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = moduloMaestrosDto.Id}, moduloMaestrosDto);
             var retorno2 = await _UnitOfWork.ModuloMaestros.GetIdAsync(moduloMaestrosDto.Id);
             return _mapper.Map<ModuloMaestrosDto>(retorno2);

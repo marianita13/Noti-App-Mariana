@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (submodulos == null){
                 return BadRequest();
             }
+            SubmodulosDto.Id = submodulos.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = SubmodulosDto.Id}, SubmodulosDto);
             var retorno2 = await _UnitOfWork.SubModulos.GetIdAsync(SubmodulosDto.Id);
             return _mapper.Map<SubmodulosDto>(retorno2);

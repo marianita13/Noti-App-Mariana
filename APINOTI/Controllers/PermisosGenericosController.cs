@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (Permisos == null){
                 return BadRequest();
             }
+            PermisosGenericosDto.Id = Permisos.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = PermisosGenericosDto.Id}, PermisosGenericosDto);
             var retorno2 = await _UnitOfWork.PermisosGenericos.GetIdAsync(PermisosGenericosDto.Id);
             return _mapper.Map<PermisosGenericosDto>(retorno2);

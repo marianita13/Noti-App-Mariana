@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (hiloRespuesta == null){
                 return BadRequest();
             }
+            hiloRespuestaDto.Id = hiloRespuesta.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = hiloRespuestaDto.Id}, hiloRespuestaDto);
             var retorno2 = await _UnitOfWork.HiloRespuestas.GetIdAsync(hiloRespuestaDto.Id);
             return _mapper.Map<HiloRespuestaDto>(retorno2);

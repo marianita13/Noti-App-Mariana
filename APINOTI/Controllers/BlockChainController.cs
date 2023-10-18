@@ -54,6 +54,7 @@ namespace APINOTI.Controllers
             if (blockChain == null){
                 return BadRequest();
             }
+            blockChainDto.Id = blockChain.Id;
             var dato = CreatedAtAction(nameof(Post), new {id = blockChainDto.Id}, blockChainDto);
             var retorno = await _UnitOfWork.BlockChains.GetIdAsync(blockChain.Id);
             return _mapper.Map<BlockChainDto>(retorno);
