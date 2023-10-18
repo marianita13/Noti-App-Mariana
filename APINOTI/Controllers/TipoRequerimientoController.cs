@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<TipoRequrimientoDto>> Post(TipoRequrimientoDto TipoRequrimientoDto){
             var tipoRequerimiento = _mapper.Map<TipoRequerimiento>(TipoRequrimientoDto);
+            if (tipoRequerimiento.FechaCreacion == DateTime.MinValue){
+                tipoRequerimiento.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.TipoRequerimientos.Add(tipoRequerimiento);
             await _UnitOfWork.SaveAsync();
             if (tipoRequerimiento == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = TipoRequrimientoDto.Id}, TipoRequrimientoDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = TipoRequrimientoDto.Id}, TipoRequrimientoDto);
+            var retorno2 = await _UnitOfWork.TipoRequerimientos.GetIdAsync(TipoRequrimientoDto.Id);
+            return _mapper.Map<TipoRequrimientoDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<TipoRequrimientoDto>> Put(int id, TipoRequrimientoDto TipoRequrimientoDto){
+            if (TipoRequrimientoDto.FechaModificacion == DateTime.MinValue){
+                TipoRequrimientoDto.FechaModificacion = DateTime.Now;
+            }
             if (TipoRequrimientoDto.Id == 0){
                 TipoRequrimientoDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var tipoRequerimiento = _mapper.Map<TipoRequerimiento>(TipoRequrimientoDto);
             _UnitOfWork.TipoRequerimientos.Update(tipoRequerimiento);
             await _UnitOfWork.SaveAsync();
-            return TipoRequrimientoDto;
+            return _mapper.Map<TipoRequrimientoDto>(tipoRequerimiento);
         }
 
         [HttpDelete("{id}")]

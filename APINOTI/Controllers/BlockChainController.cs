@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<BlockChainDto>> Post(BlockChainDto blockChainDto){
             var blockChain = _mapper.Map<BlockChain>(blockChainDto);
+            if (blockChain.FechaCreacion == DateTime.MinValue){
+                blockChain.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.BlockChains.Add(blockChain);
             await  _UnitOfWork.SaveAsync();
             if (blockChain == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = blockChainDto.Id}, blockChainDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = blockChainDto.Id}, blockChainDto);
+            var retorno = await _UnitOfWork.BlockChains.GetIdAsync(blockChain.Id);
+            return _mapper.Map<BlockChainDto>(retorno);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<BlockChainDto>> Put(int id, BlockChainDto blockChainDto){
+            if (blockChainDto.FechaModificacion == DateTime.MinValue){
+                blockChainDto.FechaModificacion = DateTime.Now;
+            }
             if (blockChainDto.Id == 0){
                 blockChainDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var blockChains = _mapper.Map<BlockChain>(blockChainDto);
             _UnitOfWork.BlockChains.Update(blockChains);
             await _UnitOfWork.SaveAsync();
-            return blockChainDto;
+            return _mapper.Map<BlockChainDto>(blockChainDto);
         }
 
         [HttpDelete("{id}")]

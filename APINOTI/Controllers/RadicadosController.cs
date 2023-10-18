@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<RadicadosDto>> Post(RadicadosDto RadicadosDto){
             var radicados = _mapper.Map<Radicados>(RadicadosDto);
+            if (radicados.FechaCreacion == DateTime.MinValue){
+                radicados.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.Radicados.Add(radicados);
             await _UnitOfWork.SaveAsync();
             if (radicados == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = RadicadosDto.Id}, RadicadosDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = RadicadosDto.Id}, RadicadosDto);
+            var retorno2 = await _UnitOfWork.Radicados.GetIdAsync(RadicadosDto.Id);
+            return _mapper.Map<RadicadosDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<RadicadosDto>> Put(int id, RadicadosDto RadicadosDto){
+            if (RadicadosDto.FechaModificacion == DateTime.MinValue){
+                RadicadosDto.FechaModificacion = DateTime.Now;
+            }
             if (RadicadosDto.Id == 0){
                 RadicadosDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var radicados = _mapper.Map<Radicados>(RadicadosDto);
             _UnitOfWork.Radicados.Update(radicados);
             await _UnitOfWork.SaveAsync();
-            return RadicadosDto;
+            return _mapper.Map<RadicadosDto>(radicados);;
         }
 
         [HttpDelete("{id}")]

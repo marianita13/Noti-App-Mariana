@@ -2,7 +2,6 @@ using APINOTI.Dtos;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
-using Infraestructura.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APINOTI.Controllers
@@ -66,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<AuditoriaDto>> Put(int id, AuditoriaDto auditoriaDto){
+            if (auditoriaDto.FechaModificacion == DateTime.MinValue){
+                auditoriaDto.FechaModificacion = DateTime.Now;
+            }
             if (auditoriaDto.Id == 0){
                 auditoriaDto.Id = id;
             }
@@ -78,7 +80,7 @@ namespace APINOTI.Controllers
             var auditorias = _mapper.Map<Auditoria>(auditoriaDto);
             _UnitOfWork.Auditorias.Update(auditorias);
             await _UnitOfWork.SaveAsync();
-            return auditoriaDto;
+            return _mapper.Map<AuditoriaDto>(auditorias);
         }
 
         [HttpDelete("{id}")]

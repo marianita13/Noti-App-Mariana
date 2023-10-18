@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<RolDto>> Post(RolDto RolDto){
             var roles = _mapper.Map<Rol>(RolDto);
+            if (roles.FechaCreacion == DateTime.MinValue){
+                roles.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.Roles.Add(roles);
             await _UnitOfWork.SaveAsync();
             if (roles == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = RolDto.Id}, RolDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = RolDto.Id}, RolDto);
+            var retorno2 = await _UnitOfWork.Roles.GetIdAsync(RolDto.Id);
+            return _mapper.Map<RolDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<RolDto>> Put(int id, RolDto RolDto){
+            if (RolDto.FechaModificacion == DateTime.MinValue){
+                RolDto.FechaModificacion = DateTime.Now;
+            }
             if (RolDto.Id == 0){
                 RolDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var roles = _mapper.Map<Rol>(RolDto);
             _UnitOfWork.Roles.Update(roles);
             await _UnitOfWork.SaveAsync();
-            return RolDto;
+            return _mapper.Map<RolDto>(roles);
         }
 
         [HttpDelete("{id}")]

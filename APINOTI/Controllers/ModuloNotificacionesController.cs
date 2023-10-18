@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<ModuloNotificacionesDto>> Post(ModuloNotificacionesDto ModuloNotificacionesDto){
             var moduloNotificaciones = _mapper.Map<ModuloNoficaciones>(ModuloNotificacionesDto);
+            if (moduloNotificaciones.FechaCreacion == DateTime.MinValue){
+                moduloNotificaciones.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.ModuloNotificaciones.Add(moduloNotificaciones);
             await _UnitOfWork.SaveAsync();
             if (moduloNotificaciones == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = ModuloNotificacionesDto.Id}, ModuloNotificacionesDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = ModuloNotificacionesDto.Id}, ModuloNotificacionesDto);
+            var retorno2 = await _UnitOfWork.ModuloNotificaciones.GetIdAsync(ModuloNotificacionesDto.Id);
+            return _mapper.Map<ModuloNotificacionesDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<ModuloNotificacionesDto>> Put(int id, ModuloNotificacionesDto ModuloNotificacionesDto){
+            if (ModuloNotificacionesDto.FechaModificacion == DateTime.MinValue){
+                ModuloNotificacionesDto.FechaModificacion = DateTime.Now;
+            }
             if (ModuloNotificacionesDto.Id == 0){
                 ModuloNotificacionesDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var moduloNotificaciones = _mapper.Map<ModuloNoficaciones>(ModuloNotificacionesDto);
             _UnitOfWork.ModuloNotificaciones.Update(moduloNotificaciones);
             await _UnitOfWork.SaveAsync();
-            return ModuloNotificacionesDto;
+            return _mapper.Map<ModuloNotificacionesDto>(moduloNotificaciones);
         }
 
         [HttpDelete("{id}")]

@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<PermisosGenericosDto>> Post(PermisosGenericosDto PermisosGenericosDto){
             var Permisos = _mapper.Map<PermisosGenericos>(PermisosGenericosDto);
+            if (Permisos.FechaCreacion == DateTime.MinValue){
+                Permisos.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.PermisosGenericos.Add(Permisos);
             await _UnitOfWork.SaveAsync();
             if (Permisos == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = PermisosGenericosDto.Id}, PermisosGenericosDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = PermisosGenericosDto.Id}, PermisosGenericosDto);
+            var retorno2 = await _UnitOfWork.PermisosGenericos.GetIdAsync(PermisosGenericosDto.Id);
+            return _mapper.Map<PermisosGenericosDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<PermisosGenericosDto>> Put(int id, PermisosGenericosDto PermisosGenericosDto){
+            if (PermisosGenericosDto.FechaModificacion == DateTime.MinValue){
+                PermisosGenericosDto.FechaModificacion = DateTime.Now;
+            }
             if (PermisosGenericosDto.Id == 0){
                 PermisosGenericosDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var Permisos = _mapper.Map<PermisosGenericos>(PermisosGenericosDto);
             _UnitOfWork.PermisosGenericos.Update(Permisos);
             await _UnitOfWork.SaveAsync();
-            return PermisosGenericosDto;
+            return _mapper.Map<PermisosGenericosDto>(Permisos);
         }
 
         [HttpDelete("{id}")]

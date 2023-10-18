@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<HiloRespuestaDto>> Post(HiloRespuestaDto hiloRespuestaDto){
             var hiloRespuesta = _mapper.Map<HiloRespuestaNot>(hiloRespuestaDto);
+            if (hiloRespuesta.FechaCreacion == DateTime.MinValue){
+                hiloRespuesta.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.HiloRespuestas.Add(hiloRespuesta);
             await _UnitOfWork.SaveAsync();
             if (hiloRespuesta == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = hiloRespuestaDto.Id}, hiloRespuestaDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = hiloRespuestaDto.Id}, hiloRespuestaDto);
+            var retorno2 = await _UnitOfWork.HiloRespuestas.GetIdAsync(hiloRespuestaDto.Id);
+            return _mapper.Map<HiloRespuestaDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<HiloRespuestaDto>> Put(int id, HiloRespuestaDto HiloRespuestaDto){
+            if (HiloRespuestaDto.FechaModificacion == DateTime.MinValue){
+                HiloRespuestaDto.FechaModificacion = DateTime.Now;
+            }
             if (HiloRespuestaDto.Id == 0){
                 HiloRespuestaDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var hiloRespuesta = _mapper.Map<HiloRespuestaNot>(HiloRespuestaDto);
             _UnitOfWork.HiloRespuestas.Update(hiloRespuesta);
             await _UnitOfWork.SaveAsync();
-            return HiloRespuestaDto;
+            return _mapper.Map<HiloRespuestaDto>(hiloRespuesta);
         }
 
         [HttpDelete("{id}")]

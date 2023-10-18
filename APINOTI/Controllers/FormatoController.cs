@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<FormatoDto>> Post(FormatoDto FormatosDto){
             var formatos = _mapper.Map<Formatos>(FormatosDto);
+            if (formatos.FechaCreacion == DateTime.MinValue){
+                formatos.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.Formatos.Add(formatos);
             await _UnitOfWork.SaveAsync();
             if (formatos == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = FormatosDto.Id}, FormatosDto);
+            var datp = CreatedAtAction(nameof(Post), new {id = FormatosDto.Id}, FormatosDto);
+            var retorno2 = await _UnitOfWork.Formatos.GetIdAsync(FormatosDto.Id);
+            return _mapper.Map<FormatoDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<FormatoDto>> Put(int id, FormatoDto FormatoDto){
+            if (FormatoDto.FechaModificacion == DateTime.MinValue){
+                FormatoDto.FechaModificacion = DateTime.Now;
+            }
             if (FormatoDto.Id == 0){
                 FormatoDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var formatos = _mapper.Map<Formatos>(FormatoDto);
             _UnitOfWork.Formatos.Update(formatos);
             await _UnitOfWork.SaveAsync();
-            return FormatoDto;
+            return _mapper.Map<FormatoDto>(formatos);
         }
 
         [HttpDelete("{id}")]

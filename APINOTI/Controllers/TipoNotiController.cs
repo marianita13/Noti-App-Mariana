@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<TipoNotiDto>> Post(TipoNotiDto TipoNotiDto){
             var tipoNoti = _mapper.Map<TipoNotificaciones>(TipoNotiDto);
+            if (tipoNoti.FechaCreacion == DateTime.MinValue){
+                tipoNoti.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.TipoNotificaciones.Add(tipoNoti);
             await _UnitOfWork.SaveAsync();
             if (tipoNoti == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = TipoNotiDto.Id}, TipoNotiDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = TipoNotiDto.Id}, TipoNotiDto);
+            var retorno2 = await _UnitOfWork.TipoNotificaciones.GetIdAsync(TipoNotiDto.Id);
+            return _mapper.Map<TipoNotiDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<TipoNotiDto>> Put(int id, TipoNotiDto TipoNotiDto){
+            if (TipoNotiDto.FechaModificacion == DateTime.MinValue){
+                TipoNotiDto.FechaModificacion = DateTime.Now;
+            }
             if (TipoNotiDto.Id == 0){
                 TipoNotiDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var tipoNoti = _mapper.Map<TipoNotificaciones>(TipoNotiDto);
             _UnitOfWork.TipoNotificaciones.Update(tipoNoti);
             await _UnitOfWork.SaveAsync();
-            return TipoNotiDto;
+            return _mapper.Map<TipoNotiDto>(tipoNoti);
         }
 
         [HttpDelete("{id}")]

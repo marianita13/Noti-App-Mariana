@@ -46,12 +46,17 @@ namespace APINOTI.Controllers
 
         public async Task<ActionResult<ModuloMaestrosDto>> Post(ModuloMaestrosDto moduloMaestrosDto){
             var moduloMaestros = _mapper.Map<ModulosMaestros>(moduloMaestrosDto);
+            if (moduloMaestros.FechaCreacion == DateTime.MinValue){
+                moduloMaestros.FechaCreacion = DateTime.Now;
+            }
             _UnitOfWork.ModuloMaestros.Add(moduloMaestros);
             await _UnitOfWork.SaveAsync();
             if (moduloMaestros == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new {id = moduloMaestrosDto.Id}, moduloMaestrosDto);
+            var dato = CreatedAtAction(nameof(Post), new {id = moduloMaestrosDto.Id}, moduloMaestrosDto);
+            var retorno2 = await _UnitOfWork.ModuloMaestros.GetIdAsync(moduloMaestrosDto.Id);
+            return _mapper.Map<ModuloMaestrosDto>(retorno2);
         }
 
         [HttpPut("{id}")]
@@ -60,6 +65,9 @@ namespace APINOTI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public async Task<ActionResult<ModuloMaestrosDto>> Put(int id, ModuloMaestrosDto moduloMaestrosDto){
+            if (moduloMaestrosDto.FechaModificacion == DateTime.MinValue){
+                moduloMaestrosDto.FechaModificacion = DateTime.Now;
+            }
             if (moduloMaestrosDto.Id == 0){
                 moduloMaestrosDto.Id = id;
             }
@@ -72,7 +80,7 @@ namespace APINOTI.Controllers
             var moduloMaestros = _mapper.Map<ModulosMaestros>(moduloMaestrosDto);
             _UnitOfWork.ModuloMaestros.Update(moduloMaestros);
             await _UnitOfWork.SaveAsync();
-            return moduloMaestrosDto;
+            return _mapper.Map<ModuloMaestrosDto>(moduloMaestros);
         }
 
         [HttpDelete("{id}")]
