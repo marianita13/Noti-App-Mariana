@@ -13,6 +13,6 @@ namespace APINOTI.Dtos
         public DateTime FechaModificacion { get; set; }
         public string NombreUsuario { get; set; }
         public int DesAccion { get; set; }
-        public ICollection<BlockChain> BlockChains {get; set;}
+        public List<BlockChainDto> BlockChains {get; set;}
     }
 }
