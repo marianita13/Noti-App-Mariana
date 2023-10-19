@@ -15,8 +15,8 @@ namespace APINOTI.Helpers
         private string _search;
 
         public int PageSize{
-            get => _PageSize;
-            set => _PageSize = (value > MaxPageSize) ? MaxPageSize : value;
+            get => _pageSize;
+            set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
         public int PageIndex{

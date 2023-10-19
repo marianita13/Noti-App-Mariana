@@ -12,7 +12,7 @@ namespace APINOTI.Dtos
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string NombreModulo { get; set; }
-        public ICollection<RolvsMaestro> RolvsMaestros {get; set;}
-        public ICollection<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
+        public List<RolvsMaestro> RolvsMaestros {get; set;}
+        public List<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
     }
 }

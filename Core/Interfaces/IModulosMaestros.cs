@@ -8,6 +8,7 @@ namespace Core.Interfaces
 {
     public interface IModulosMaestros : IGenericRepository<ModulosMaestros>
     {
-        
+        Task<List<RolvsMaestro>> GetRolvsMaestros(int TiponotiId);
+        Task<List<MaestrosvsSubModulos>> GetMaestrosvsSubModulos(int TiponotiId2);
     }
 }

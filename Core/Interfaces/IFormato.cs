@@ -8,6 +8,6 @@ namespace Core.Interfaces
 {
     public interface IFormato : IGenericRepository<Formatos>
     {
-        
+        Task<List<ModuloNoficaciones>> GetModuloNotificaciones(int formatoId);
     }
 }

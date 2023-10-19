@@ -12,6 +12,6 @@ namespace APINOTI.Dtos
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string NombreSubmodulo { get; set; }
-        public ICollection<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
+        public List<MaestrosvsSubModulos> MaestrosvsSubModulos {get; set;}
     }
 }

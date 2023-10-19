@@ -8,6 +8,6 @@ namespace Core.Interfaces
 {
     public interface IEstadoNotificacion : IGenericRepository<EstadoNotificacion>
     {
-        
+        Task<List<ModuloNoficaciones>> GetModuloNotificaciones(int EstadoNotiId);
     }
 }

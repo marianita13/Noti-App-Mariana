@@ -8,6 +8,6 @@ namespace Core.Interfaces
 {
     public interface IRol : IGenericRepository<Rol>
     {
-        
+        Task<List<RolvsMaestro>> GetRolvsMaestrosAsync(int Id);
     }
 }

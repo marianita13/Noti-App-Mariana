@@ -12,7 +12,7 @@ namespace APINOTI.Dtos
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string NombreTipo { get; set; }
-        public ICollection<BlockChain> BlockChains {get; set;}
-        public ICollection<ModuloNoficaciones> ModuloNoficaciones {get; set;}
+        public List<BlockChain> BlockChains {get; set;}
+        public List<ModuloNoficaciones> ModuloNoficaciones {get; set;}
     }
 }

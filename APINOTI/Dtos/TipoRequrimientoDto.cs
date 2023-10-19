@@ -12,6 +12,6 @@ namespace APINOTI.Dtos
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string Nombre { get; set; }
-        public ICollection<ModuloNoficaciones> ModuloNoficaciones {get; set;}
+        public List<ModuloNoficaciones> ModuloNoficaciones {get; set;}
     }
 }

@@ -2,6 +2,9 @@
 Mi aplicación de notificaciones para universidades es una herramienta diseñada para mejorar la comunicación y la interacción en entornos académicos. Con esta aplicación, he creado una forma efectiva de mantener a estudiantes, profesores y personal administrativo informados sobre eventos, plazos, cambios en horarios y cualquier información relevante. Puedes personalizar tus preferencias de notificación para recibir solo la información que necesitas. Además, la aplicación se integra sin problemas con los sistemas existentes de la universidad, proporcionando acceso a información en tiempo real. Mi objetivo al desarrollar esta aplicación es facilitar la vida académica y asegurarme de que todos estén al tanto de lo que está sucediendo en el campus.
 
 # INSTRUCCIONES PARA EL BUEN FUNCIONAMIENTO
+
+Lo primero que debes hacer luego de clonar el repo es en la consola poner el comando "dotnet restore", para eliminar los errores que apareceran.
+
 ## FUNCIONALIDAD DE LOS DTOS
 ### Auditoria:
 `{

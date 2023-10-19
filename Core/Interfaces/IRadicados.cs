@@ -8,6 +8,6 @@ namespace Core.Interfaces
 {
     public interface IRadicados : IGenericRepository<Radicados>
     {
-        
+        Task<List<ModuloNoficaciones>> GetModuloNotificaciones(int Id);
     }
 }

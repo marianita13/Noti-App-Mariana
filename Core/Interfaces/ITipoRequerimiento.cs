@@ -8,6 +8,6 @@ namespace Core.Interfaces
 {
     public interface ITipoRequerimiento : IGenericRepository<TipoRequerimiento>
     {
-        
+        Task<List<ModuloNoficaciones>> GetModuloNotificaciones(int TiponotiId2);
     }
 }
