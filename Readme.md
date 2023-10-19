@@ -78,7 +78,8 @@ Necesitas tener elementos creados de:
 
 ----------------------------------------------------------------
 ### Radicados:
-No necesitas poner nada para crear un radicado
+`{
+}`
 
 ----------------------------------------------------------------
 ### Rol:
